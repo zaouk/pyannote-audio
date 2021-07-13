@@ -105,6 +105,7 @@ class Segmentation(SegmentationTaskMixin, Task):
         augmentation: BaseWaveformTransform = None,
         loss: Literal["bce", "mse"] = "bce",
         vad_loss: Literal["bce", "mse"] = None,
+        bypass_protocol_check=False,
     ):
 
         super().__init__(
@@ -115,6 +116,7 @@ class Segmentation(SegmentationTaskMixin, Task):
             num_workers=num_workers,
             pin_memory=pin_memory,
             augmentation=augmentation,
+            bypass_protocol_check=bypass_protocol_check
         )
 
         self.overlap = overlap
